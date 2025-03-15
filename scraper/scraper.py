@@ -98,3 +98,11 @@ class BookScraper:
                     book.image_url, book.category, book.description, book.upc, book.product_page_url, book.num_reviews
                 ])
         print(f"Data saved to {filename}")
+    
+    def save_to_db(self):
+        """Menyimpan data buku ke database SQLite."""
+        session = self.db_session.get_session()
+        session.add_all(self.books)
+        session.commit()
+        session.close()
+        print("Data saved to database.")
