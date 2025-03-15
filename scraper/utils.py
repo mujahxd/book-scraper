@@ -9,7 +9,7 @@ def get_all_books():
     books = []
     page = 1
 
-    while page < 3:
+    while True:
         print(f"Scraping page {page}...")
         url = base_url.format(page)
         response = requests.get(url)
